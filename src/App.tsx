@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { ErrorFallback, Loading } from './pages';
+import { ErrorBoundary } from 'react-error-boundary';
+import AppRoutes from './routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-function App() {
+export const App: React.FC<Record<string, never>> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Suspense fallback={<Loading />}>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Router>
+          <AppRoutes />
+        </Router>
+      </ErrorBoundary>
+    </React.Suspense>
   );
-}
+};
 
 export default App;
