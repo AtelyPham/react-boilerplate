@@ -12,8 +12,11 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -23,8 +26,15 @@ module.exports = {
     },
     ecmaVersion: 13,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+    'import',
+    'simple-import-sort',
+  ],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
   },
@@ -36,7 +46,10 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.ts?(x)'],
-      rules: { 'prettier/prettier': ['warn', prettierOptions] },
+      rules: {
+        'prettier/prettier': ['warn', prettierOptions],
+        'simple-import-sort/imports': 'error',
+      },
     },
   ],
 };

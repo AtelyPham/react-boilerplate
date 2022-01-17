@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint --ext js,ts,tsx ./src",
+    "lint": "eslint --ext js,jsx,ts,tsx ./src",
     "prettify": "prettier --write",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,8 +49,10 @@
     "@typescript-eslint/parser": "^5.9.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "4",
     "lint-staged": "^12.1.7",
     "prettier": "^2.5.1"
